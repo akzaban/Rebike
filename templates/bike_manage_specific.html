@@ -1,0 +1,49 @@
+{% extends 'operator_base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReBike - Bike details</title>
+</head>
+<div class="subheading">Manage a Specific Bike</div>
+<body>
+<div class="card">
+    <div class="card-header">
+        Manage Bike
+    </div>
+    <div class="card-body">
+<table class="table" >
+    <thead class="thead-dark">
+    <tr>
+        <th>Bike ID</th>
+        <th>Location</th>
+        <th>Station</th>
+        <th>Availability</th>
+        <th>Defective</th>
+        <th>Details of Defect </th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tbody>
+        <tr>
+            <td>{{ bike_obj.bikeid }}</td>
+            <td>{{ bike_obj.postcode }}</td>
+            <td>{{ bike_obj.station_id }}</td>
+            <td>{{ bike_obj.ifavailable }}</td>
+            <td>{{ bike_obj.ifdefective }}</td>
+            <td>{{ bike_obj.defective_details }}</td>
+            <td><a href="\bike_repair/?pk={{ bike_obj.bikeid }}">Repair</a></td>
+            <td><a href="\bike_delete/?pk={{ bike_obj.bikeid }}">Delete</a></td>
+        </tr>
+    </tbody>
+    </thead>
+</table>
+
+</div>
+</div>
+</body>
+</html>
+{% endblock %}

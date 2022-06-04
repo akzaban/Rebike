@@ -1,0 +1,36 @@
+{% extends 'manager_base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>peaktime</title>
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-4.2.1.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+
+<div class="subheading">Report regarding peak time</div>
+
+</head>
+<body>
+<div class="card" style="position:fixed">
+    <div class="card-header">
+           Peak Time Activities
+        </div>
+<div class="card-body">
+   <h3> Here are the peak times during the day</h3>
+<br>
+            <h3 class="mb-45" data-animation="fadeInUp" data-delay=".7s" style="font-style: italic">
+            For renting:</h3>
+            <img src="/media/images/peaktime.png"/>
+
+
+            <h3 class="mb-45" data-animation="fadeInUp" data-delay=".7s" style="font-style: italic">
+            For returning:</h3>
+            <img src="/media/images/peaktimeE.png"/>
+
+</div>
+    </div>
+    </body>
+{% endblock %}
+    </html>

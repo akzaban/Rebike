@@ -1,0 +1,22 @@
+{% extends 'operator_base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReBike - Operator index</title>
+     <div class="subheading">Hello {{ username }}. Welcome!</div>
+</head>
+<body>
+<div class="card">
+    <div class="card-body">
+       <p> As an operator you can perform many tasks</p>
+    <a href="\bike_manage_list">Click Here to manage bikes</a><br>
+    <a href="\bike_add">Click here to Add a new bike</a><br>
+    <a href="\deal_repwd">Click here to deal with Retrieve password request</a>
+</div>
+</div>
+</body>
+</html>
+{% endblock content %}

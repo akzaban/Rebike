@@ -1,0 +1,45 @@
+{%  load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <link rel="stylesheet" type="text/css" href="{% static 'Rebike/style.css' %}">
+
+    <div class="heading"> <!--heading--> ReBike </div>
+</head>
+
+<body>
+<!--side navigation bar-->
+<div class="sidenav">
+   <a href="\homepage_user"><img  alt="Menu" src="{% static 'Rebike/Menu.png' %}"/></a>
+    <div class="sidemenu">
+    <h2><a href="\manager_index"><img  alt="Home" src="{% static 'Rebike/Logo.png' %}"/></a></h2>
+        <a href="\change_info"><img  alt="information" src="{% static 'Rebike/changeinfo.png' %}"/></a>
+   <a href="\operator_manage_list"><img  alt="manage_operator" src="{% static 'Rebike/manage_operator.png' %}"/></a>
+
+    <a href="\bike_activites"><img  alt="bike_activities" src="{% static 'Rebike/bike.png' %}"/></a>
+
+    <a href="\Useractivites"><img  alt="user_activities" src="{% static 'Rebike/bicycle 1.png' %}"/></a>
+
+    <a href="\peaktime"><img  alt="peaktime" src="{% static 'Rebike/clock 1.png' %}"/></a>
+
+    <a href="\locations"><img  alt="station_activities" src="{% static 'Rebike/Return (1).png' %}"/></a>
+
+    <a href="\logout"><img  alt="logout" src="{% static 'Rebike/logout.png' %}"/></a>
+</div>
+</div>
+
+
+<div class="main">
+
+    {% block content %}{% endblock %}
+
+</div>
+
+</body>
+</html>

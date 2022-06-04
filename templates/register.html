@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReBike - Register</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/auth1.css">
+</head>
+<body background="../static/Rebike/bikehome1.png">
+<div class="login">
+    <div class="login-wrapper" style="min-height: 544px;">
+        <div class="login-box login-login login-animated" style="display: none;">
+<div class="login-box-inner">
+<form action="#login">
+<p>Sign in to continue</p>
+<div class="login-group">
+<label>Email <a href="https://www.jq22.com/demo/jquerylogin201907082147/#" class="login-back-link">Sign in?</a></label>
+<input type="email" autocomplete="email" name="email" value="admin@qq.com" class="login-input">
+</div>
+<div class="login-group password-group" style="height: 70px;">
+<label>Password <a href="https://www.jq22.com/demo/jquerylogin201907082147/#" class="forgot-link">Forgot Password?</a></label>
+<input type="password" name="password" autocomplete="current-password" class="login-input">
+</div>
+<button class="login-btn login-btn">
+Sign In
+</button>
+<div class="text-foot">
+Don't have an account? <a href="https://www.jq22.com/demo/jquerylogin201907082147/" class="register-link">Register</a>
+</div>
+</form>
+</div>
+</div>
+        <div class="login-box login-register login-flip login-animated-flip" style="display: block;">
+        <div class="login-box-inner">
+            <form action="#login" method="post">
+                {% csrf_token %}
+                <p>Let's create your account</p>
+                <div class="login-group">
+                    <label>*Username</label>
+                    <input type="text" name="user" autocomplete="user" class="login-input">
+                </div>
+                <div class="login-group">
+                    <label>*Password</label>
+                    <input type="password"  name="pwd" class="login-input">
+                </div>
+                <div class="login-group">
+                    <label>*Password again</label>
+                    <input type="password" name="pwdagain"  class="login-input">
+                </div>
+                <div class="login-group">
+                    <label>*Email</label>
+                    <input type="email" name="email"  class="login-input">
+                </div>
+                <div class="login-group">
+                    <label>Postcode</label>
+                    <input type="text" name="postcode"  class="login-input">
+                </div>
+                <button class="login-btn">
+                Register
+                </button>
+                <div class="text-foot">
+                The field marked with * is mandatory.
+                </div>
+            </form>
+            <div class="text-foot">
+                    <a href="\login">Already have an account ?</a><br><br>
+                    <a href="\homepage">Homepage</a>
+            </div>
+</div>
+</div>
+</div>
+    <footer class="login-footer">
+    </footer>
+</div>
+<script src="/static/js/auth.js"></script>
+
+</body>
+</html>

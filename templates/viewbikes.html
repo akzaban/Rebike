@@ -1,0 +1,93 @@
+{% extends 'operator_base.html' %}
+
+{% block content %}
+<!--<div class="subheading">Move bike to nearest station</div>-->
+ <div class="subheading">Move bike to nearest station</div>
+
+<!--need to add the title-->
+<title>Operators - Move Bike</title>
+
+ <div class="card">
+    <div class="card-header" >Move Bike</div>
+<div class="card-body">
+
+    <h5 ><b>Bikes nearest to your location that are not in a station :</b></h5>
+<p><table class="table  table-active table-sm"   >
+
+     {% for bike in nearest_bikes_not_in_station %}
+    <tbody>
+        <!--view bikeid-->
+        <tr>
+            <td>Bike ID:{{ bike.bikeid  }}</td>
+            <td>Bike Postcode: {{ bike.postcode}}</td>
+        <td><a  href="{% url 'movebike' bike.bikeid %}">Move Bike {{ bike.bikeid }}</a></td>
+        </tr>
+        <!--if there are no nearest_bikes display the following-->
+        {% empty %}
+         Sorry, there are no bikes in your area right now!
+    {% endfor %}
+</tbody>
+</table>
+</p>
+    <h5><b>Other Bikes that are not in a station:</b></h5>
+<p>
+<table class="table  table-active table-sm">
+   {% for bike in other_bikes_not_in_station %}
+
+    <tbody>
+        <!--view bikeid-->
+       <tr>
+            <td>Bike ID: {{ bike.bikeid  }}</td>
+            <td>Bike Postcode: {{ bike.postcode}}</td>
+
+        <td><a  href="{% url 'movebike' bike.bikeid %}">Move Bike {{ bike.bikeid }}</a></td>
+          </tr>
+        <!--if there are no nearest_bikes display the following-->
+        {% empty %}
+        Sorry, there are no bikes in other areas right now!
+    {% endfor %}
+   </tbody>
+</thead>
+</table>
+</p>
+    <h5><b>Bikes in the nearest station:</b></h5>
+   <p>
+        <!--view bikeid-->
+<table class="table  table-active table-sm"   >
+{% for bike in nearest_bikes_in_station %}
+    <tbody>
+               <td>Bike ID : {{ bike.bikeid  }}</td>
+            <td>{{ bike.station.name}}</td>
+            <td>Postcode: {{ bike.station.postcode}}</td>
+            <td> <a  href="/move_bike/{{ bike.bikeid }}">Move Bike {{ bike.bikeid }}</a></td>
+
+    {% empty %}
+         Sorry,there are no bikes in your nearest station right now!
+    {% endfor %}
+</tbody>
+</table>
+
+</p>
+<p>
+    <h5><b>Bikes in other stations:</b></h5>
+<table class="table  table-active table-sm" >
+   {% for bike in other_bikes_in_station %}
+
+    <tbody>
+
+        <!--view bikeid-->
+         <td>Bike ID: {{ bike.bikeid  }}</td>
+            <td> {{ bike.station.name}}</td>
+            <td>Postcode: {{ bike.station.postcode}}</td>
+       <td> <a  href="/move_bike/{{ bike.bikeid }}">Move Bike {{ bike.bikeid }}</a></td>
+
+        <!--if there are no nearest_bikes display the following-->
+        {% empty %}
+      Sorry, there are no bikes in other stations right now!
+    {% endfor %}
+ </tbody></table>
+</p>
+</div>
+</div>
+
+{% endblock content %}

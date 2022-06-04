@@ -1,0 +1,48 @@
+{% extends 'manager_base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReBike - Manage operators</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <div class="subheading">As manager you can manage operators </div>
+</head>
+<body>
+ <div class="card" style="font-family: Montserrat">
+ You can also choose to manage operators through this list:
+<div class="card-body">
+    <div class="table_scroll">
+    <table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th>User ID</th>
+        <th>Username</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tbody>
+    {% for i in all_operators %}
+        <tr>
+            <td>{{ i.userid }}</td>
+            <td>{{ i.username }}</td>
+            <td><a href="\operator_delete/?pk={{ i.userid }}">delete</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </thead>
+</table>
+ <a href="\operator_add">Click here to add a new operator</a>
+ </div>
+</div>
+</div>
+</body>
+
+
+
+
+
+
+{% endblock %}
+</html>

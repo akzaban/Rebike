@@ -1,0 +1,37 @@
+{% extends 'operator_base.html' %}
+{% block content %}
+<!--need to add the title-->
+<title>Operators- Bike Info</title>
+
+<div class="subheading">Information about the Bike</div>
+
+
+<div class="card">
+<div class="card-body">
+<table class="table table-striped table-sm"  >
+{% for bike in current_bike %}
+    <tbody>
+    <tr><td> <p class="article-content">Bike ID:</p></td>
+        <td> <p class="article-content">{{ bike.bikeid }} </p></td></tr>
+
+    <tr><td><p class="article-content">Bike Location: </p></td>
+        <td><p class="article-content">{{ bike.postcode }} </p></td></tr>
+    <tr><td><p class="article-content">Is bike available?  </p></td>
+          <td><p class="article-content">{{ bike.ifavailable }}</p></td></tr>
+   <tr><td><p class="article-content">Is bike defective? </p></td>
+    <td><p class="article-content">{{ bike.ifdefective }} </p></td></tr>
+    <tr><td><p class="article-content">Is bike in a station?</p></td>
+   <td><p class="article-content"> {{ bike.ifstation }} </p></td></tr>
+   <tr><td><p class="article-content">In which station is the bike? </p></td>
+   <td><p class="article-content"> {{ bike.station.name }} </p></td></tr>
+    <tr><td><p class="article-content">What is the problem? </p></td>
+    <td><p class="article-content">{{ bike.defective_details }} </p></td></tr>
+
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+
+
+{% endblock content %}

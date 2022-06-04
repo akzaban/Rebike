@@ -1,0 +1,26 @@
+{% extends 'operator_base.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<!--need to add the title-->
+<title>Operators - Track Bike</title>
+
+<div class="subheading">Choose bike to track</div>
+    <div class="card">
+    <div class="card-header">Track</div>
+  <div class="card-body">
+  {% load crispy_forms_tags %}
+<form class="slider-search-form" action="" method="post">
+        {% csrf_token %}
+            <select class="form-control" name="bike">
+            <option>select bike to track</option>
+            {% for i in bike %}
+              <option value="{{ i.bikeid }}">{{ i.bikeid }}</option>
+             {% endfor %}
+        </select>
+        <button type="submit" value="Submit" class="btn btn-primary"><i class="far fa-search">Track bike</i></button>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

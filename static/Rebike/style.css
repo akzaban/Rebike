@@ -1,0 +1,132 @@
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #f4f6f9;
+}
+/*styling for navigation bar*/
+.sidenav {
+  height: 100%;
+  width: 110px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #3B6ED5;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffff;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+/*styling for heading i.e. rebike*/
+.heading {
+position: absolute;
+width: 155.82px;
+left: 130px;
+top: 28px;
+
+font-family: Roboto;
+font-style: italic;
+font-weight: normal;
+font-size: 30px;
+line-height: 56px;
+
+color: #3B6ED5;
+  position: fixed;
+}
+/*styling for subheading*/
+.subheading {
+
+  position: absolute;
+height: 53px;
+left: 130px;
+top: 90px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 25px;
+line-height: 52px;
+/* identical to box height */
+  position: fixed;
+color: #000000;
+}
+.main {
+  align-content: center;
+  margin-left: 232px; /* Same as the width of the sidenav */
+  /*font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+  margin-top: 52px;
+}
+.second {
+  align-content: center;
+  margin-left: 232px; /* Same as the width of the sidenav */
+  /*font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+  margin-top: 50px;
+}
+.center_text{
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 60px;
+/* identical to box height */
+
+text-align: center;
+
+color: #000000;
+
+}
+/*styling for center box*/
+.card {
+
+  position: absolute;
+width: 1024px;
+  height: 420px;
+overflow: hidden;
+left: 200px;
+top: 160px;
+padding: 20px;
+background: #FFFFFF;
+border: 1px solid #EEF1F9;
+box-sizing: border-box;
+border-radius: 5px;
+  position:fixed;
+
+
+
+
+}
+.card-header{
+  font-size: 40px;
+  text-align: center;
+  background: #FFFFFF;
+  font-family: Poppins;
+
+
+
+}
+.sidemenu{
+  position: absolute;
+  top: 150px;
+
+
+}
+.table_scroll{
+  overflow:auto;
+}
+.card-body{
+  overflow:auto;
+  font-family: "Montserrat";
+}

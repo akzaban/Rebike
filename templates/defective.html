@@ -1,0 +1,71 @@
+{% extends 'customer_base.html' %}
+{% block content %}
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    <div class="subheading">Don’t hesitate to report to us if your current bike is defective </div>
+    </head>
+    <body>
+
+    <div class="card">
+    <div class="card-header">Report Defective Bike</div>
+    <div class="card-body">
+        {% if messages %}
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+        {% else %}
+            <section>
+                <div>
+                    <form action="." method="POST">
+                        {% csrf_token %}
+
+                        <div>
+                            <label for="part">Select the dysfunctional part</label>
+                            <!-- <input type="text" id="lastName" name="part"> -->
+                            <select name="part">
+                                <option value=""></option>
+                                <option value="brakes">Brakes</option>
+                                <option value="pedals">Pedals</option>
+                                <option value="wheels">Wheels</option>
+                                <option value="frame">Frame</option>
+                                <option value="tyres">Tyres</option>
+                                <option value="other_part">Other</option>
+
+                            </select>
+
+
+                        <!-- <div>
+                          <label for="email">Email</label>
+                          <input type="email" id="email" name="email">
+                        </div> -->
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                           <label for="postcode">Postcode</label>
+                            <input type="text" name="postcode">
+                             <br>
+                            <label for="details">Enter additional details</label><br>
+                            <textarea name="details" cols="30" rows="10"></textarea>
+                        </div>
+
+                        <button type="submit" value="Update" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div id="status"></div>
+            </section>
+            {% for message in post_err %}
+                {{message}}
+            {% endfor %}
+        {% endif %}
+
+
+            </div>
+    </div>
+    </body>
+    </html>
+
+
+
+{% endblock %}

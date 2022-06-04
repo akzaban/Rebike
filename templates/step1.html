@@ -1,0 +1,146 @@
+{% extends 'customer_base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Rebike - rent bike - step1</title>
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-4.2.1.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+<div class="subheading">You can rent a bike here</div>
+</head>
+<body>
+<div class="card" style=" position: fixed ">
+ <div class="card-header"><form class="slider-search-form" action="." method="post" >
+             {% csrf_token %}
+            <input type="text" placeholder="Enter postcode" name="postcode">
+            <button type ="submit" value="Findstation" style="width: fit-content" ><i class="far fa-search"  >search</i></button>
+        </form></div>
+<div class="card-body">
+        {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        {% else %}
+     <div class="col-xl-12 col-lg-6 col-md-9" style="height: fit-content">
+                <h2 class="mb-45" data-animation="fadeInUp" data-delay=".7s" style="height: fit-content">
+                    Viewing nearest stations:</h2>
+            <table class="table">
+                {% for station in nearest_station %}
+                    <!--view nearest stations-->
+                   <tr>
+                       <td><b>Station name</b></td>
+                <td><b>Station Postcode</b></td>
+                <td><b>Available Bikes</b></td>
+                   </tr>  <tr>
+                    <td> <a href="/input/{{ nearest_station_id }}"> {{ station.name }}</a></td> <td>{{ station.postcode }}</td><td>{{ nearest_bikes }} </td>
+                   </tr>
+            </table>
+                    {% empty %}
+                    <h5> Sorry, no stations in your area</h5>
+                {% endfor %}
+
+                <h2 class="mb-45" data-animation="fadeInUp" data-delay=".7s" style="height: fit-content">
+                 Viewing other stations:</h2>
+
+
+
+{% for station,bikes,station_id in other %}
+
+<table class="table">
+            <tbody>
+            <!--view other stations-->
+            <td><a href="/input/{{ station_id }}">{{ station.name }}</a></td><td>{{ station.postcode }}</td><td> {{ bikes }}</td>
+ </tbody>
+    </table>
+            {% empty %}
+            <h5> Sorry, there are no other stations </h5>
+        {% endfor %}
+
+{% endif %}
+
+        </div>
+</div>
+</div>
+
+  {% comment %}   <div class="col-xl-8 col-lg-6 col-md-9">
+         <div class="hero-content mt-80"></div>
+     </div>
+
+    <div class="col-xl-8 col-lg-6 col-md-9">
+    <div class="hero-content mt-80">
+    <h2 class="mb-45" data-animation="fadeInUp" data-delay=".7s">
+    Viewing other stations:</h2>
+        {% for station,bikes,station_id in other %}
+            <!--view other stations-->
+            <a href="/input/{{ station_id }}">Station name: {{ station.name }}, Station postcode:{{ station.postcode }}, Available bikes: {{ bikes }}</a>
+            <br>
+            {% empty %}
+            <h5> Sorry, there are no other stations </h5>
+        {% endfor %}
+{% endif %}
+</div>
+</div>{% endcomment %}
+
+{% comment %}
+
+<div class="col-xl-6 col-lg-6 col-md-9">
+    <div class="hero-content mt-80">
+        <div class="hero-slider-caption">
+<span data-animation="fadeInUp" data-delay=".5s"><i class="fal fa-ellipsis-h"></i>
+Welcome Rebike</span>
+<h2 class="mb-45" data-animation="fadeInUp" data-delay=".7s">
+Rent bike</h2>
+<form class="slider-search-form" action="." method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="Enter postcode" name="postcode">
+    <button type="submit" value="Findstation"><i class="far fa-search">search</i></button>
+</form>
+</div>
+        <div class="row support-area align-items-center">
+        <div class="col-xl-6"></div>
+    </div>
+</div>
+</div>
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% else %}
+
+    <div class="col-xl-6 col-lg-6 col-md-9">
+    <div class="hero-content mt-80">
+<h2 class="mb-45" data-animation="fadeInUp" data-delay=".7s">
+Viewing nearest stations:</h2>
+    {% for station in nearest_station %}
+            <!--view nearest stations-->
+            <a href="/input/{{ nearest_station_id }}">Station name: {{ station.name }}, Station postcode:{{ station.postcode }}, Available bikes: {{ nearest_bikes }}</a>
+            {% empty %}
+            <h5> Sorry, no stations in your area</h5>
+        {% endfor %}
+    </div>
+    </div>
+     <div class="col-xl-6 col-lg-6 col-md-9">
+         <div class="hero-content mt-80"></div>
+     </div>
+
+    <div class="col-xl-6 col-lg-6 col-md-9">
+    <div class="hero-content mt-80">
+    <h2 class="mb-45" data-animation="fadeInUp" data-delay=".7s">
+Viewing other stations:</h2>
+        {% for station,bikes,station_id in other %}
+            <!--view other stations-->
+            <a href="/input/{{ station_id }}">Station name: {{ station.name }}, Station postcode:{{ station.postcode }}, Available bikes: {{ bikes }}</a>
+            <br>
+            {% empty %}
+            <h5> Sorry, there are no other stations </h5>
+        {% endfor %}
+{% endif %}
+</div>
+</div>
+{% endcomment %}
+
+</body>
+{% endblock %}
+</html>

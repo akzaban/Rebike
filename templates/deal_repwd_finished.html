@@ -1,0 +1,19 @@
+{% extends 'operator_base.html' %}
+{% block content %}
+<!DOCTYPE html>
+    <html lang="en">
+ <head> <div class="subheading">Deal with Password Requests</div>
+
+
+    <meta charset="UTF-8">
+    <title>ReBike - Set a temporary password</title>
+</head>
+<body>
+<div class="card">
+    <div class="card-header">Setting up a temporary password</div>
+<div class="card-body">
+    <p>
+The temporary password is: <b> {{ newpwd }}</b>
+<br>Please send it to user email id: <b> {{ email }}</b></p>
+</div></div>
+{% endblock %}

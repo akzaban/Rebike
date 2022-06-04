@@ -1,0 +1,58 @@
+{% extends 'operator_base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReBike - Manage bikes</title>
+    <div class="subheading">Manage the bikes</div>
+</head>
+<body>
+ <div class="card" style="font-family: Montserrat">
+
+{{ error }}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <p> Search a bike to manage: <input type="number" name="bikeid">&nbsp&nbsp&nbsp<button class="btn btn-primary" >Search</button> </p>
+</form>
+
+You can also choose to manage a bike through this list:
+ <div class="card-body">
+ <div class="table_scroll">
+<table class="table"  >
+    <thead class="thead-dark">
+    <tr>
+        <th>Bike ID</th>
+        <th>Location</th>
+        <th>Station</th>
+        <th>Availability</th>
+        <th>Defective</th>
+        <th>Details of Defect </th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tbody>
+    {% for i in all_bikes %}
+        <tr>
+            <td>{{ i.bikeid }}</td>
+            <td>{{ i.postcode }}</td>
+            <td>{{ i.station.name }}</td>
+            <td>{{ i.ifavailable }}</td>
+            <td>{{ i.ifdefective }}</td>
+            <td>{{ i.defective_details }}</td>
+            <td><a href="\bike_repair/?pk={{ i.bikeid }}">Repair</a></td>
+            <td><a href="\bike_delete/?pk={{ i.bikeid }}">Delete</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </thead>
+</table>
+</div>
+ </div>
+ </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'customer_base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent bike - input</title>
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-4.2.1.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    {% comment %}<link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.css">{% endcomment %}
+</head>
+<body>
+<br>
+<br>
+
+<div class="col-xl-8 col-lg-6 col-md-9">
+    <div class="hero-content mt-80">
+        <div class="hero-slider-caption">
+        <span data-animation="fadeInUp" data-delay=".5s"><i class="fal fa-ellipsis-h"></i>
+        Welcome Rebike</span>
+        <h2 class="mb-45" data-animation="fadeInUp" data-delay=".7s">
+        Rent bike</h2>
+        <form class="slider-search-form" action="/input/{{ id }}" method="post">
+        {% csrf_token %}
+            <select class="form-control" name="bike">
+            <option>select a bike to rent</option>
+            {% for i in bike %}
+              <option value="{{ i.bikeid }}">{{ i.bikeid }}</option>
+             {% endfor %}
+        </select>
+        {% comment %}<input type="text" placeholder="Enter postcode" name="postcode">{% endcomment %}
+        <button type="submit" value="Submit"><i class="far fa-search">select</i></button>
+    </form>
+</div>
+        <div class="row support-area align-items-center">
+        <div class="col-xl-6"></div>
+    </div>
+</div>
+</div>
+</body>
+
+{% comment %}<body>
+<br>
+<br>
+<form action="/input/{{ id }}" method="post">
+    {% csrf_token %}
+    <select class="form-control" name="bike">
+        <option>select bike to rent</option>
+        {% for i in bike %}
+            <option value="{{ i.bikeid }}">{{ i.bikeid }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Submit">
+</form>
+
+</body>{% endcomment %}
+{#<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>#}
+<script>
+
+</script>
+
+</body>
+{%endblock%}
+</html>
+
+</html>

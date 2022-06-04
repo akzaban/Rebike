@@ -1,0 +1,39 @@
+{% extends 'manager_base.html' %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReBike - Add a new operator</title>
+    <div class="subheading">As operator you can add operators</div>
+</head>
+<body>
+<div class="card">
+    <div class="card-header">Add Operator</div>
+    <div class="card-body">
+{{ message }}
+<form action="" method="post">
+    {% csrf_token %}
+    <p>
+        Username: <input type="text" name="user">
+    </p>
+    <P>
+        Email: <input type="email" name="email">
+    </P>
+    <P>
+        Postcode:<input type="text" name="postcode">
+    </P>
+    <p>
+        {{ error }}
+    </p>
+
+    <button class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+</div>
+</body>
+{% endblock %}
+</html>

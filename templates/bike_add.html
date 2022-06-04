@@ -1,0 +1,32 @@
+{% extends 'operator_base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReBike - Add a new bike</title>
+    <div class="subheading">As operator you can add bikes </div>
+</head>
+<div class="card">
+    <div class="card-header">Add Bike</div>
+    <div class="card-body">
+{{ message }}
+<form action="" method="post">
+    {% csrf_token %}<b>
+    <p>
+        Postcode: <input type="text" name="postcode">
+    </p>
+    <P>
+        *Station ID: <input type="text" name="stationid">
+    </P> </b>
+    <p>The field marked * is optional.</p>
+    <p>
+        {{ error }}
+    </p>
+    <button class="btn btn-primary">Add</button>
+</form>
+        </div>
+</div>
+</body>
+</html>
+{% endblock %}

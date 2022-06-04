@@ -1,0 +1,38 @@
+{% extends 'operator_base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReBike - Deal with retrieve password</title>
+</head>
+<div class="subheading">Deal with Password Requests</div>
+<body>
+<div class="card">
+<div class="card-body">
+<table class="table">
+    <thead class="table-dark">
+    <tr style>
+        <th>Request ID</th>
+        <th>Email</th>
+        <th>Time of request </th>
+    </tr>
+    <tbody>
+    {% for i in all_requests %}
+        <tr >
+            <td>{{ i.requestid }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.requesttime }}</td>
+            <td><a href="\deal_repwd_process/?pk={{ i.requestid }}"> set a temporary password </a></td>
+        </tr>
+    {% empty %}<br> <tr> <td></td><td ><h4> No requests at the moment! </h4></td></tr>
+    {% endfor %}
+
+    </tbody>
+    </thead>
+</table>
+</div>
+</div>
+</body>
+{% endblock %}
